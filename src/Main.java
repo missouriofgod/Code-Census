@@ -5,11 +5,11 @@ import java.io.*;
 import java.util.Objects;
 
 public class Main extends JFrame {
-    private static int lines;
-    private static int chars;
+    private static long lines;
+    private static long chars;
     private static boolean isDirectory;
     private static boolean start = false;
-    private static final boolean[] hasExtensions = new boolean[37];
+    private static final boolean[] hasExtensions = new boolean[38];
     private static final String[] End = {
             ".java",
             ".c",
@@ -46,7 +46,8 @@ public class Main extends JFrame {
             ".f",
             ".pas",
             ".fs",
-            ".txt"
+            ".txt",
+            ".iml"
     };
 
     private Main() {
@@ -90,156 +91,88 @@ public class Main extends JFrame {
         Checkbox c34 = new Checkbox(".pas");
         Checkbox c35 = new Checkbox(".fs");
         Checkbox c36 = new Checkbox(".txt");
+        Checkbox c37 = new Checkbox(".iml");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setLocation(1680 / 2 - 500 / 2, 946 / 2 - 280 / 2);
         setTitle("Code Census 代码普查 -- by Missouri_of_god");
         setLayout(new FlowLayout());
+        setBackground(new Color(255, 194, 76));
 
-        c1.addItemListener(e -> {
-            hasExtensions[0] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c1.addItemListener(e -> hasExtensions[0] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c2.addItemListener(e -> {
-            hasExtensions[1] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c2.addItemListener(e -> hasExtensions[1] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c3.addItemListener(e -> {
-            hasExtensions[2] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c3.addItemListener(e -> hasExtensions[2] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c4.addItemListener(e -> {
-            hasExtensions[3] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c4.addItemListener(e -> hasExtensions[3] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c5.addItemListener(e -> {
-            hasExtensions[4] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c5.addItemListener(e -> hasExtensions[4] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c6.addItemListener(e -> {
-            hasExtensions[5] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c6.addItemListener(e -> hasExtensions[5] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c7.addItemListener(e -> {
-            hasExtensions[6] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c7.addItemListener(e -> hasExtensions[6] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c8.addItemListener(e -> {
-            hasExtensions[7] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c8.addItemListener(e -> hasExtensions[7] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c9.addItemListener(e -> {
-            hasExtensions[8] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c9.addItemListener(e -> hasExtensions[8] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c10.addItemListener(e -> {
-            hasExtensions[9] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c10.addItemListener(e -> hasExtensions[9] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c11.addItemListener(e -> {
-            hasExtensions[10] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c11.addItemListener(e -> hasExtensions[10] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c12.addItemListener(e -> {
-            hasExtensions[11] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c12.addItemListener(e -> hasExtensions[11] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c13.addItemListener(e -> {
-            hasExtensions[12] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c13.addItemListener(e -> hasExtensions[12] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c14.addItemListener(e -> {
-            hasExtensions[13] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c14.addItemListener(e -> hasExtensions[13] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c15.addItemListener(e -> {
-            hasExtensions[14] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c15.addItemListener(e -> hasExtensions[14] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c16.addItemListener(e -> {
-            hasExtensions[15] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c16.addItemListener(e -> hasExtensions[15] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c17.addItemListener(e -> {
-            hasExtensions[16] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c17.addItemListener(e -> hasExtensions[16] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c18.addItemListener(e -> {
-            hasExtensions[17] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c18.addItemListener(e -> hasExtensions[17] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c19.addItemListener(e -> {
-            hasExtensions[18] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c19.addItemListener(e -> hasExtensions[18] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c20.addItemListener(e -> {
-            hasExtensions[19] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c20.addItemListener(e -> hasExtensions[19] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c21.addItemListener(e -> {
-            hasExtensions[20] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c21.addItemListener(e -> hasExtensions[20] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c22.addItemListener(e -> {
-            hasExtensions[21] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c22.addItemListener(e -> hasExtensions[21] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c23.addItemListener(e -> {
-            hasExtensions[22] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c23.addItemListener(e -> hasExtensions[22] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c24.addItemListener(e -> {
-            hasExtensions[23] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c24.addItemListener(e -> hasExtensions[23] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c25.addItemListener(e -> {
-            hasExtensions[24] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c25.addItemListener(e -> hasExtensions[24] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c26.addItemListener(e -> {
-            hasExtensions[25] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c26.addItemListener(e -> hasExtensions[25] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c27.addItemListener(e -> {
-            hasExtensions[26] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c27.addItemListener(e -> hasExtensions[26] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c28.addItemListener(e -> {
-            hasExtensions[27] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c28.addItemListener(e -> hasExtensions[27] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c29.addItemListener(e -> {
-            hasExtensions[28] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c29.addItemListener(e -> hasExtensions[28] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c30.addItemListener(e -> {
-            hasExtensions[29] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c30.addItemListener(e -> hasExtensions[29] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c31.addItemListener(e -> {
-            hasExtensions[30] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c31.addItemListener(e -> hasExtensions[30] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c32.addItemListener(e -> {
-            hasExtensions[31] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c32.addItemListener(e -> hasExtensions[31] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c33.addItemListener(e -> {
-            hasExtensions[32] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c33.addItemListener(e -> hasExtensions[32] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c34.addItemListener(e -> {
-            hasExtensions[33] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c34.addItemListener(e -> hasExtensions[33] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c35.addItemListener(e -> {
-            hasExtensions[34] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c35.addItemListener(e -> hasExtensions[34] = e.getStateChange() == ItemEvent.SELECTED);
 
-        c36.addItemListener(e -> {
-            hasExtensions[35] = e.getStateChange() == ItemEvent.SELECTED;
-        });
+        c36.addItemListener(e -> hasExtensions[35] = e.getStateChange() == ItemEvent.SELECTED);
+
+        repaint();
 
         b2.addActionListener(e -> {
             JFileChooser jfc = new JFileChooser();
@@ -268,46 +201,20 @@ public class Main extends JFrame {
                 isDirectory = true;
             }
         });
-        add(c1);
-        add(c2);
-        add(c3);
-        add(c4);
-        add(c5);
-        add(c6);
-        add(c7);
-        add(c8);
-        add(c9);
-        add(c10);
-        add(c11);
-        add(c12);
-        add(c13);
-        add(c14);
-        add(c15);
-        add(c16);
-        add(c17);
-        add(c18);
-        add(c19);
-        add(c20);
-        add(c21);
-        add(c22);
-        add(c23);
-        add(c24);
-        add(c25);
-        add(c26);
-        add(c27);
-        add(c28);
-        add(c29);
-        add(c30);
-        add(c31);
-        add(c32);
-        add(c33);
-        add(c34);
-        add(c35);
-        add(c36);
+        add(c1); add(c2); add(c3);
+        add(c4); add(c5); add(c6);
+        add(c7); add(c8); add(c9);
+        add(c10); add(c11); add(c12);
+        add(c13); add(c14); add(c15);
+        add(c16); add(c17); add(c18);
+        add(c19); add(c20); add(c21);
+        add(c22); add(c23); add(c24);
+        add(c25); add(c26); add(c27);
+        add(c28); add(c29); add(c30);
+        add(c31); add(c32); add(c33);
+        add(c34); add(c35); add(c36);
 
-        add(tf);
-        add(b);
-        add(b2);
+        add(c37); add(tf); add(b); add(b2);
 
         Timer timer = new Timer(1, e -> {
             setSize(500, 280);
@@ -375,7 +282,7 @@ public class Main extends JFrame {
     }
 
     private static boolean hasEnd(String name) {
-        for (int i = 0; i < 36; i++) if (hasExtensions[i] && name.endsWith(End[i])) return true;
+        for (int i = 0; i < 37; i++) if (hasExtensions[i] && name.endsWith(End[i])) return true;
         return false;
     }
 }
